@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="books_act" model="ir.actions.act_window">
+            <field name="name">Sách</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">book</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="books_tree" model="ir.ui.view">
+            <field name="name">Sách</field>
+            <field name="model">book</field>
+            <field name="arch" type="xml">
+                <tree string="Sách">
+                    <field name="name"/>
+                    <field name="author"/>
+                    <field name="category"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="books_form" model="ir.ui.view">
+            <field name="name">Sách</field>
+            <field name="model">book</field>
+            <field name="arch" type="xml">
+                <form string="Sách">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="author"/>
+                                <field name="page"/>
+                                <field name="category"/>
+                            </group>
+                            <group>
+                                <field name="input_amount"/>
+                                <field name="remain_amount"/>
+                                <field name="employee_borrow"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+
+        </record>
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="book_menu" name="Sách" parent="book_category" action="books_act" sequence="2"/>
+
+
+    </data>
+</odoo>

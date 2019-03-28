@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--Create parent menu-->
+
+    <data>
+        <!--Create action form-->
+        <record id="theater_schedule_action" model="ir.actions.act_window">
+            <field name="name">Lịch chiếu</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">reserve.schedule</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!--Create add and edit form-->
+        <record id="theater_schedule_form" model="ir.ui.view">
+            <field name="name">Lịch chiếu</field>
+            <field name="model">reserve.schedule</field>
+            <field name="arch" type="xml">
+                <form string="Lịch chiếu">
+                    <sheet>
+                        <group>
+                            <field name="movie"/>
+                            <field name="date"/>
+                            <field name="time"/>
+                            <field name="seat_ids" widget="one2many_list"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!--Create tree-->
+        <record id="theater_schedule_tree" model="ir.ui.view">
+            <field name="name">Lịch chiếu</field>
+            <field name="model">reserve.schedule</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="movie"/>
+                    <field name="date"/>
+                    <field name="time"/>
+                </tree>
+            </field>
+        </record>
+
+        <!--Sub menu-->
+        <menuitem id="theater_schedule_submenu" name="Lịch chiếu" parent="cinema_project"
+                  action="theater_schedule_action" sequence="1"/>
+
+    </data>
+
+</odoo>

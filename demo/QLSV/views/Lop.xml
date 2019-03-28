@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="Lop_category" name="Danh sách Lớp" sequence="1"/>
+    <data>
+        <record id="Lop_category_act" model="ir.actions.act_window">
+            <field name="name">Danh Sách Lớp</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">Lop</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="Lop_category_form" model="ir.ui.view">
+            <field name="name">Danh Sách Lớp</field>
+            <field name="model">Lop</field>
+            <field name="arch" type="xml">
+                <form string="Lớp">
+                    <sheet>
+                        <group>
+                            <field name="TN"/>
+                            <field name="TL"/>
+                            <field name="GC"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="book_category_tree" model="ir.ui.view">
+            <field name="name">Danh sách lớp</field>
+            <field name="model">Lop</field>
+            <field name="arch" type="xml">
+                <tree string="Lớp">
+                     <field name="TN"/>
+                     <field name="TL"/>
+                     <field name="GC"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="Lop_category_menu" name="Danh sách lớp" parent="Lop_category" action="Lop_category_act" sequence="3"/>
+    </data>
+</odoo>

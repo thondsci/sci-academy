@@ -1,0 +1,50 @@
+<odoo>
+  <data>
+
+      <!-- actions opening views on models -->
+      <record model="ir.actions.act_window" id="category_action_window">
+          <field name="name">Danh sách các loại thuốc và dụng cụ y tế</field>
+          <field name="res_model">category.pharmacy</field>
+          <field name="view_mode">tree,form</field>
+      </record>
+
+    <!-- explicit list view definition -->
+      <record model="ir.ui.view" id="category_list">
+          <field name="name">Danh sách các loại thuốc và dụng cụ y tế</field>
+          <field name="model">category.pharmacy</field>
+          <field name="arch" type="xml">
+              <tree string="Loại thuốc/dụng cụ y tế">
+                  <field name="name"/>
+                  <field name="note"/>
+              </tree>
+          </field>
+      </record>
+
+      <!-- form-->
+      <record id="class_form" model="ir.ui.view">
+          <field name="name">Loại sản phẩm</field>
+          <field name="model">category.pharmacy</field>
+          <field name="arch" type="xml">
+              <form string="Loại thuốc/dụng cụ y tế">
+                  <sheet>
+                      <group>
+                          <field name="cate"/>
+                          <field name="name"/>
+                          <field name="note"/>
+                      </group>
+                  </sheet>
+              </form>
+          </field>
+      </record>
+
+    <!-- Top menu item -->
+
+    <menuitem name="Quản lý quầy thuốc" id="menu_root_phamacy" sequence="1"/>
+
+    <!-- actions -->
+
+    <menuitem name="Danh mục thuốc và dụng cụ y tế" id="category_sub_menu" parent="menu_root_phamacy"
+              action="category_action_window" sequence="2"/>
+
+  </data>
+</odoo>

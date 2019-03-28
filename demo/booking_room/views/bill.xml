@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="bill_act" model="ir.actions.act_window">
+            <field name="name">Khách thanh toán</field>
+            <field name="res_model">bills</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="bills_tree" model="ir.ui.view">
+            <field name="name">List thanh toán</field>
+            <field name="model">bills</field>
+            <field name="arch" type="xml">
+                <tree string="Khách thanh toán">
+                    <field name="so_phong"/>
+                    <field name="gia_phong"/>
+                    <field name="dich_vu"/>
+                    <field name="gia_dv"/>
+                    <field name="solgdv"/>
+                    <field name="total"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="bill_form" model="ir.ui.view">
+            <field name="name">Form khách hàng</field>
+            <field name="model">bills</field>
+            <field name="arch" type="xml">
+                <form string="Chi tiết">
+                    <sheet>
+                        <group>
+                            <field name="so_phong"/>
+                            <!--<field name="kh"/>-->
+                            <field name="gia_phong"/>
+                            <field name="dich_vu"/>
+                            <field name="gia_dv"/>
+                            <field name="solgdv"/>
+                            <field name="total"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="bill_menu" name="Thanh toán" parent="room_menu_root" action="bill_act" sequence="4"/>
+
+    </data>
+
+</odoo>

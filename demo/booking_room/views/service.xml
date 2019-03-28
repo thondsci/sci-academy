@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <!-- This Menu Item must have a parent and an action -->
+
+
+        <record id="service_act" model="ir.actions.act_window">
+            <field name="name">Dịch vụ</field>
+            <field name="res_model">service</field>
+            <field name="view_mode">tree,form</field>
+
+        </record>
+
+        <record id="service_tree" model="ir.ui.view">
+            <field name="name">List Dịch vụ</field>
+            <field name="model">service</field>
+            <field name="arch" type="xml">
+                <tree string="Dịch vụ">
+                    <field name="code_service"/>
+                    <field name="name"/>
+                    <field name="price_service"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="service_form" model="ir.ui.view">
+            <field name="name">Form Dịch vụ</field>
+            <field name="model">service</field>
+            <field name="arch" type="xml">
+                <form string="Form Dịch vụ">
+                    <sheet>
+                        <group>
+                            <field name="code_service"/>
+                            <field name="name"/>
+                            <field name="price_service"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <menuitem id="service_menu" name="Dịch vụ" parent="room_menu_root" action="service_act" sequence="3"/>
+
+    </data>
+</odoo>

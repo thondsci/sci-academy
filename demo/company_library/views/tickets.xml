@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="tickets_act" model="ir.actions.act_window">
+            <field name="name">Phiếu Mượn Sách</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">ticket.book</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="tickets_tree" model="ir.ui.view">
+            <field name="name">Phiếu Mượn Sách</field>
+            <field name="model">ticket.book</field>
+            <field name="arch" type="xml">
+                <tree string="Phiếu Mượn Sách">
+                    <field name="ma_nv"/>
+                    <field name="name_nv"/>
+                    <field name="sdt"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="tickets_form" model="ir.ui.view">
+            <field name="name">Phiếu Mượn Sách</field>
+            <field name="model">ticket.book</field>
+            <field name="arch" type="xml">
+                <form string="Phiếu Mượn Sách">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="ma_nv"/>
+                                <field name="sdt"/>
+                                <field name="time_borrow"/>
+                            </group>
+                            <group>
+                                <field name="name_nv"/>
+                                <field name="time_pay"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Tên sách mượn">
+                                <field name="book_borrow">
+                                    <tree editable="bottom">
+                                        <field name="sach"/>
+                                        <field name="author1"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="tickets_menu" name="Phiếu mượn" parent="book_category" action="tickets_act" sequence="4"/>
+
+    </data>
+</odoo>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data>
+        <!--Create action form-->
+        <record id="ship_items_act" model="ir.actions.act_window">
+            <field name="name">Mặt hàng</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">ship.items</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!--Create add and edit form-->
+        <record id="ship_items_form" model="ir.ui.view">
+            <field name="name">Mặt hàng</field>
+            <field name="model">ship.items</field>
+            <field name="arch" type="xml">
+                <form string="Mặt hàng">
+                    <sheet>
+                        <group>
+                            <field name="id"/>
+                            <field name="name"/>
+                            <field name="unit"/>
+                            <field name="price"/>
+                        </group>
+                        <group>
+                            <field name="height"/>
+                            <field name="width"/>
+                            <field name="length"/>
+                            <field name="weight"/>
+                            <field name="volume"/>
+                        </group>
+                        <notebook>
+                            <page string="Mô tả sản phẩm">
+                                <field name="description"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!--Create tree-->
+        <record id="ship_items_tree" model="ir.ui.view">
+            <field name="name">Mặt hàng</field>
+            <field name="model">ship.items</field>
+            <field name="arch" type="xml">
+                <tree string="Mặt hàng">
+                    <field name="id"/>
+                    <field name="name"/>
+                    <field name="unit"/>
+                    <field name="price"/>
+                    <field name="weight"/>
+                    <field name="volume"/>
+                </tree>
+            </field>
+        </record>
+
+        <!--Sub menu-->
+        <menuitem id="ship_items_submenu" name="Mặt hàng" parent="shipper_mng"
+                  action="ship_items_act" sequence="3"/>
+
+    </data>
+
+</odoo>

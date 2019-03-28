@@ -1,0 +1,58 @@
+<odoo>
+  <data>
+
+      <!-- actions opening views on models -->
+      <record model="ir.actions.act_window" id="product_action_window">
+          <field name="name">Quản lý sản phẩm</field>
+          <field name="res_model">product.pharmacy</field>
+          <field name="view_mode">tree,form</field>
+      </record>
+
+    <!-- explicit list view definition -->
+      <record model="ir.ui.view" id="product_list">
+          <field name="name">Danh sách sản phẩm</field>
+          <field name="model">product.pharmacy</field>
+          <field name="arch" type="xml">
+              <tree string="Danh sách sản phẩm">
+                  <field name="ma_sp"/>
+                  <field name="name_sp"/>
+                  <field name="nha_sx"/>
+                  <field name="type_sp"/>
+                  <!--
+                  <field name="email"/>
+                  <field name="sdt"/>
+                  <field name="addr"/>-->
+              </tree>
+          </field>
+      </record>
+
+      <!-- form-->
+      <record id="product_form" model="ir.ui.view">
+          <field name="name">Sản phẩm</field>
+          <field name="model">product.pharmacy</field>
+          <field name="arch" type="xml">
+              <form string="Thêm sản phẩm">
+                  <sheet>
+                      <group>
+                          <field name="ma_sp"/>
+                          <field name="name_sp"/>
+                          <field name="nha_sx"/>
+                          <field name="type_sp"/>
+                          <field name="note"/>
+                          <!--
+                          <field name="email"/>
+                          <field name="sdt"/>
+                          <field name="addr"/>-->
+                      </group>
+                  </sheet>
+              </form>
+          </field>
+      </record>
+
+    <!-- actions -->
+
+    <menuitem name="Quản lý sản phẩm" id="product_sub_menu" parent="menu_root_phamacy"
+              action="product_action_window" sequence="4"/>
+
+  </data>
+</odoo>

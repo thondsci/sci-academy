@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+
+    <data>
+        <!-- explicit list view definition -->
+        <menuitem id="room_menu_root" name="Hotel Booking"/>
+
+        <record model="ir.ui.view" id="room_list">
+            <field name="name">Room List</field>
+            <field name="model">room</field>    <!-- tên trường _name -->
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="status"/>
+                    <field name="kind"/>
+                    <field name="price"/>
+                    <!--<field name="description"/>-->
+                </tree>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="room_from">
+            <field name="name">Room from</field>
+            <field name="model">room</field>
+            <field name="arch" type="xml">
+                <form string="Chi tiết">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="kind"/>
+                            <field name="status"/>
+                            <field name="price"/>
+                            <field name="description"/>
+                        </group>
+                        <notebook>
+                            <page string="Khách thuê">
+                                <tree editable="bottom">
+                                    <field name="guestsd"/>
+                                </tree>
+                            </page>
+                        </notebook>
+                        <!--<button name="roomallocationandfree" string="Allocation/Free" type="object"-->
+                                <!--class="btn-primary"/>-->
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <!-- actions opening views on models. hành động mở lượt xem trên web -->
+
+        <record model="ir.actions.act_window" id="room_act">
+            <field name="name">Chi tiết phòng</field>  <!-- tên tiêu đề trong view -->
+            <field name="res_model">room</field>
+            <field name="view_mode">tree,form,kanban</field>
+        </record>
+
+
+        <!-- Top menu item .mục menu trên cùng-->
+
+
+        <menuitem id="booking_room_menu" name="Danh sách phòng" parent="room_menu_root" action="room_act" sequence="1"/>
+
+
+    </data>
+
+</odoo>

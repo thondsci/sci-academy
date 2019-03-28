@@ -1,0 +1,66 @@
+<odoo>
+  <data>
+
+      <!-- actions opening views on models -->
+      <record model="ir.actions.act_window" id="ticketInput_action_pharmacy">
+          <field name="name">Quản lý nhập kho</field>
+          <field name="res_model">ticket.pharmacy</field>
+          <field name="view_mode">tree,form</field>
+      </record>
+
+    <!-- explicit list view definition -->
+      <record model="ir.ui.view" id="ticketInput_list">
+          <field name="name">Thông tin nhập kho</field>
+          <field name="model">ticket.pharmacy</field>
+          <field name="arch" type="xml">
+              <tree string="Danh sách đơn nhập kho">
+                  <field name="code_order"/>
+                  <field name="in_date"/>
+                  <field name="in_emp"/>
+                  <field name="total_pay"/>
+              </tree>
+          </field>
+      </record>
+
+      <!-- form-->
+      <record id="ticketInput_form" model="ir.ui.view">
+          <field name="name">Phiếu nhập kho</field>
+          <field name="model">ticket.pharmacy</field>
+          <field name="arch" type="xml">
+              <form string="Thông tin sản phẩm">
+                  <sheet>
+                      <group>
+                          <field name="code_order"/>
+                          <field name="in_date"/>
+                          <field name="in_emp"/>
+                          <field name="total_pay"/>
+                      </group>
+                      <notebook>
+                          <page string="Sản phẩm">
+                              <field name="in_ticket">
+                                  <tree editable="button">
+                                      <field name="code_sp"/>
+                                      <field name="ten_sp"/>
+                                      <field name="in_num"/>
+                                      <field name="price_in"/>
+                                      <field name="tax_vat"/>
+                                      <field name="pay_sp"/>
+                                  </tree>
+                              </field>
+                          </page>
+                      </notebook>
+                      <group>
+                          <field name="note"/>
+                      </group>
+                  </sheet>
+              </form>
+          </field>
+      </record>
+
+    <!-- actions -->
+
+    <menuitem name="Quản lý nhập hàng" id="ticketInput_sub_menu" parent="menu_root_phamacy"
+              action="ticketInput_action_pharmacy" sequence="6"/>
+
+  </data>
+</odoo>

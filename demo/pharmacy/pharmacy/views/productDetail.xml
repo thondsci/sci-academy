@@ -1,0 +1,61 @@
+<odoo>
+  <data>
+
+      <!-- actions opening views on models -->
+      <record model="ir.actions.act_window" id="productDetail_action_window">
+          <field name="name">Chi tiết sản phẩm</field>
+          <field name="res_model">productdetail.pharmacy</field>
+          <field name="view_mode">tree,form</field>
+      </record>
+
+    <!-- explicit list view definition -->
+      <record model="ir.ui.view" id="productDetail_list">
+          <field name="name">Chi tiết sản phẩm</field>
+          <field name="model">productdetail.pharmacy</field>
+          <field name="arch" type="xml">
+              <tree string="Danh sách sản phẩm">
+                  <field name="ma_sp"/>
+                  <field name="ten_sp"/>
+                  <field name="manu_facture"/>
+                  <field name="price_sale"/>
+                  <field name="in_time"/>
+                  <field name="status"/>
+                  <field name="amount"/>
+              </tree>
+          </field>
+      </record>
+
+      <!-- form-->
+      <record id="productDetail_form" model="ir.ui.view">
+          <field name="name">Sản phẩm chi tiết</field>
+          <field name="model">productdetail.pharmacy</field>
+          <field name="arch" type="xml">
+              <form string="Xem chi tiết">
+                  <sheet>
+                      <group>
+                          <field name="ma_sp"/>
+                          <field name="ten_sp"/>
+                          <field name="manu_facture"/>
+                          <field name="price_sale"/>
+                      </group>
+                      <group>
+                          <field name="type_sp"/>
+                          <field name="in_time"/>
+                          <field name="status"/>
+                          <field name="amount"/>
+                      </group>
+                      <group>
+                          <field name="note"/>
+                      </group>
+                  </sheet>
+              </form>
+          </field>
+      </record>
+
+    <!-- actions -->
+
+    <menuitem name="Chi tiết sản phẩm" id="productDetail_sub_menu" parent="menu_root_phamacy"
+              action="productDetail_action_window" sequence="5"/>
+
+  </data>
+</odoo>

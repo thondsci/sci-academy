@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--Create parent menu-->
+    <!--<menuitem id="" name="" sequence="1"/>-->
+
+    <data>
+        <!--Create action form-->
+        <record id="theater_seat_act" model="ir.actions.act_window">
+            <field name="name">Số ghế</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">reserve.seat</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!--Create add and edit form-->
+        <record id="theater_seat_form" model="ir.ui.view">
+            <field name="name">Danh sách ghế</field>
+            <field name="model">reserve.seat</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <field name="schedule_id"/>
+                            <field name="movie"/>
+                            <field name="date"/>
+                            <field name="time"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!--Create tree-->
+        <record id="theater_seat_tree" model="ir.ui.view">
+            <field name="name"></field>
+            <field name="model">reserve.seat</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="schedule_id"/>
+                    <field name="movie"/>
+                    <field name="date"/>
+                    <field name="time"/>
+                </tree>
+            </field>
+        </record>
+
+        <!--Sub menu-->
+        <menuitem id="theater_seat_submenu" name="Tổng hợp ghế" parent="cinema_project"
+                  action="theater_seat_act" sequence="2"/>
+
+    </data>
+
+</odoo>

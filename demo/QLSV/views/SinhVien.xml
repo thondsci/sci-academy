@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="sinhvien_act" model="ir.actions.act_window">
+            <field name="name">Sinh viên</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">sinhvien</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="books_tree" model="ir.ui.view">
+            <field name="name">Sinh viên</field>
+            <field name="model">sinhvien</field>
+            <field name="arch" type="xml">
+                <tree string="Sinh viên">
+                    <field name="MSV"/>
+                    <field name="NS"/>
+                    <field name="GT"/>
+                    <field name="EM"/>
+                    <field name="DT"/>
+                    <field name="QQ"/>
+                    <field name="LOP"/>
+
+                </tree>
+            </field>
+        </record>
+
+        <record id="books_form" model="ir.ui.view">
+            <field name="name">Sách</field>
+            <field name="model">books</field>
+            <field name="arch" type="xml">
+                <form string="Sinh viên">
+                    <sheet>
+                        <group>
+                           <field name="MSV"/>
+                           <field name="NS"/>
+                           <field name="GT"/>
+                           <field name="EM"/>
+                           <field name="DT"/>
+                           <field name="QQ"/>
+                           <field name="LOP"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+
+
+        </record>
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="sinhvien_menu" name="Danh sách sinh viên" parent="Lop_category" action="sinhvien_act" sequence="2"/>
+
+
+    </data>
+</odoo>

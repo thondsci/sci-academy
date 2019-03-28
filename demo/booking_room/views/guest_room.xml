@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+
+    <data>
+
+        <record model="ir.actions.act_window" id="guest_act">
+            <field name="name">Khách hàng</field>
+            <field name="res_model">guest</field>
+            <field name="view_mode">tree,form,kanban</field>
+        </record>
+
+
+        <record model="ir.ui.view" id="guest_tree">
+            <field name="name">List Khách hàng</field>
+            <field name="model">guest</field>
+            <field name="arch" type="xml">
+                <tree string="Khách hàng">
+                    <field name="cmnd"/>
+                    <field name="name"/>
+                    <field name="sdt"/>
+                    <field name="time_in"/>
+                    <field name="time_out"/>
+                    <field name="servicesd_ids"/>
+                    <field name="roomsd"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="guest_form">
+            <field name="name">Form Khách hàng</field>
+            <field name="model">guest</field>
+            <field name="arch" type="xml">
+                <form string="Chi tiết">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="cmnd"/>
+                                <field name="name"/>
+                                <field name="sdt"/>
+                            </group>
+                            <group>
+                                <field name="time_in"/>
+                                <field name="time_out"/>
+                            </group>
+                        </group>
+
+                        <notebook>
+                            <page string="Phòng thuê">
+                                <tree editable="bottom">
+                                    <field name="roomsd"/>
+
+                                </tree>
+                            </page>
+                            <page string="Dịch vụ sử dụng">
+                                <tree editable="bottom">
+                                    <field name="servicesd_ids"/>
+                                </tree>
+                            </page>
+                            <page string="Ghi chú">
+                                <field name="description"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="guest_menu" name="Khách hàng" parent="room_menu_root" action="guest_act" sequence="2"/>
+
+        <!--<menuitem id="guest_menu" name="Khách hàng" parent="room_menu_root" action="guest_act" sequence="2"/>-->
+
+
+    </data>
+</odoo>

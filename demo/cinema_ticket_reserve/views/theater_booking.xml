@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--Create parent menu-->
+    <!--<menuitem id="" name="" sequence="1"/>-->
+
+    <data>
+        <!--Create action form-->
+        <record id="theater_booking_act" model="ir.actions.act_window">
+            <field name="name">Đặt vé</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">reserve.booking</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!--Create add and edit form-->
+        <record id="theater_booking_form" model="ir.ui.view">
+            <field name="name">Đặt vé</field>
+            <field name="model">reserve.booking</field>
+            <field name="arch" type="xml">
+                <form string="Đặt vé">
+                    <sheet>
+                        <group>
+                            <field name="seat_id"/>
+                            <field name="movie"/>
+                            <field name="date"/>
+                            <field name="time"/>
+                            <field name="seat"/>
+                            <field name="booking"/>
+                            <field name="price"/>
+                            <field name="pay"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!--Create tree-->
+        <record id="" model="ir.ui.view">
+            <field name="name">Đặt vé</field>
+            <field name="model">reserve.booking</field>
+            <field name="arch" type="xml">
+                <tree string="Đặt vé">
+                    <notebook>
+                        <page>
+                            <field name="seat_id"/>
+                            <field name="movie"/>
+                            <field name="date"/>
+                            <field name="time"/>
+                            <field name="seat"/>
+                            <field name="booking"/>
+                            <field name="price"/>
+                            <field name="pay"/>
+                        </page>
+                    </notebook>
+                </tree>
+            </field>
+        </record>
+
+        <!--Sub menu-->
+        <menuitem id="theater_booking_submenu" name="Đặt vé" parent="cinema_project"
+                  action="theater_booking_act" sequence="3"/>
+
+    </data>
+
+</odoo>

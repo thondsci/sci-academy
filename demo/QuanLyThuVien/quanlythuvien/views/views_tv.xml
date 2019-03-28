@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="tttv_act" model="ir.actions.act_window">
+            <field name="name">Thành Viên</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">tttv</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="tttv_tree" model="ir.ui.view">
+            <field name="name">Thành Viên</field>
+            <field name="model">tttv</field>
+            <field name="arch" type="xml">
+                <tree string="Thành Viên">
+                    <field name="_matv"/>
+                    <field name="_hoten"/>
+                    <field name="_sdt"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="tttv_form" model="ir.ui.view">
+            <field name="name">Thành Viên</field>
+            <field name="model">tttv</field>
+            <field name="arch" type="xml">
+                <form string="Thành Viên">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="_matv"/>
+                                <field name="_sdt"/>
+                                <field name="_ngaydk"/>
+                                <field name="_ngaysinh"/>
+                            </group>
+                            <group>
+                                <field name="_hoten"/>
+                                <field name="_ngayhethan"/>
+                                <field name="_diachi"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <menuitem id="quanlythuvien_menu_root" name="QuanLyThuVien"/>
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="tttv_menu" name="Thành viên" parent="quanlythuvien_menu_root" action="tttv_act" sequence="4"/>
+
+    </data>
+</odoo>

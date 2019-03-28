@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="rv_act" model="ir.actions.act_window">
+            <field name="name">Phiếu nhập viện</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">ravien</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="rv_tree" model="ir.ui.view">
+            <field name="name">Ra viện</field>
+            <field name="model">ravien</field>
+            <field name="arch" type="xml">
+                <tree string="Phiếu nhập viện">
+                    <field name="name"/>
+                    <field name="name_2"/>
+                    <field name="time_in"/>
+                    <field name="time_out"/>
+                    <field name="total_days"/>
+                    <field name="treatments"/>
+
+                </tree>
+            </field>
+        </record>
+
+         <record id="rv_ctg_form" model="ir.ui.view">
+            <field name="name">PRV</field>
+            <field name="model">ravien</field>
+            <field name="arch" type="xml">
+                <form string="Form nhập viện">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="name_2"/>
+                            <field name="time_in"/>
+                            <field name="time_out"/>
+                            <field name="total_days"/>
+                            <field name="treatments"/>
+                            <field name="room"/>
+                            <field name="price_room"/>
+                            <field name="total"/>
+
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="rv_menu" name="nhập viện" parent="doctor_ctg" action="rv_act" sequence="2"/>
+
+
+    </data>
+</odoo>

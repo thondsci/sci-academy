@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="service_use_act" model="ir.actions.act_window">
+            <field name="name">Hóa đơn</field>
+            <field name="res_model">service_use</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="service_use_tree" model="ir.ui.view">
+            <field name="name">List Hóa đơn</field>
+            <field name="model">service_use</field>
+            <field name="arch" type="xml">
+                <tree string="Hóa đơn">
+                    <!--<field name="roomthue"/>-->
+                    <!--<field name="servicesudung"/>-->
+                    <field name="hotennguoimuon"/>
+                    <field name="price"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="service_use_form" model="ir.ui.view">
+            <field name="name">Hóa đơn</field>
+            <field name="model">service_use</field>
+            <field name="arch" type="xml">
+                <form string="Hóa đơn">
+                    <sheet>
+                        <group>
+                            <!--<field name="roomthue"/>-->
+                            <!--<field name="servicesudung"/>-->
+                            <field name="hotennguoimuon"/>
+                            <field name="price"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="service_use_menu" name="Hóa đơn" parent="room_menu_root" action="service_use_act" sequence="4"/>
+    </data>
+</odoo>

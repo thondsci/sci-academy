@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="monhoc_category" name="Môn học" sequence="1"/>
+    <data>
+        <record id="monhoc_category_act" model="ir.actions.act_window">
+            <field name="name">Danh sách môn học</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">monhoc</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="monhoc_category_form" model="ir.ui.view">
+            <field name="name">Danh sách môn học</field>
+            <field name="model">monhoc</field>
+            <field name="arch" type="xml">
+                <form string="Tên môn học">
+                    <sheet>
+                        <group>
+                            <field name="TMH"/>
+                            <field name="GC"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="monhoc_category_tree" model="ir.ui.view">
+            <field name="name">Danh sách môn học</field>
+            <field name="model">monhoc</field>
+            <field name="arch" type="xml">
+                <tree string="Tên môn học">
+                    <field name="TMH"/>
+                    <field name="GC"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="monhoc_category_menu" name="Môn học" parent="monhoc_category" action="monhoc_category_act" sequence="3"/>
+    </data>
+</odoo>

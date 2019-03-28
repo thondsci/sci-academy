@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="phieudiem_category" name="Phiếu điểm" sequence="1"/>
+    <data>
+        <record id="phieudiem_category_act" model="ir.actions.act_window">
+            <field name="name">Phiếu điểm</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">phieudiem</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="phieuđiem_category_form" model="ir.ui.view">
+            <field name="name">Phiếu điểm</field>
+            <field name="model">phieudiem</field>
+            <field name="arch" type="xml">
+                <form string="Phiếu điểm">
+                    <sheet>
+                        <group>
+                            <field name="MSV"/>
+                            <field name="HK"/>
+                            <field name="NH"/>
+                            <field name="MH"/>
+                            <field name="DIEM"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="phieudiem_category_tree" model="ir.ui.view">
+            <field name="name">Phiếu điểm</field>
+            <field name="model">phieudiem</field>
+            <field name="arch" type="xml">
+                <tree string="Phiếu điểm">
+                            <field name="MSV"/>
+                            <field name="HK"/>
+                            <field name="NH"/>
+                            <field name="MH"/>
+                            <field name="DIEM"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="phieudiem_category_menu" name="Phiếu điểm" parent="phieudiem_category" action="phieudiem_category_act" sequence="3"/>
+    </data>
+</odoo>

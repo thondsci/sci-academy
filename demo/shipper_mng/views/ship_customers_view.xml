@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data>
+        <!--Create action form-->
+        <record id="ship_customers_act" model="ir.actions.act_window">
+            <field name="name">Khách hàng</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">ship.customers</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!--Create add and edit form-->
+        <record id="ship_customers_form" model="ir.ui.view">
+            <field name="name">Khách hàng</field>
+            <field name="model">ship.customers</field>
+            <field name="arch" type="xml">
+                <form string="Khách hàng">
+                    <sheet>
+                        <group>
+                            <field name="id"/>
+                            <field name="name"/>
+                            <field name="phone"/>
+                            <field name="address"/>
+                            <field name="distance"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!--Create tree-->
+        <record id="ship_customers_tree" model="ir.ui.view">
+            <field name="name">Khách hàng</field>
+            <field name="model">ship.customers</field>
+            <field name="arch" type="xml">
+                <tree string="Khách hàng">
+                    <field name="id"/>
+                    <field name="name"/>
+                    <field name="phone"/>
+                    <field name="address"/>
+                </tree>
+            </field>
+        </record>
+
+        <!--Sub menu-->
+        <menuitem id="ship_customers_submenu" name="Khách hàng" parent="shipper_mng"
+                  action="ship_customers_act" sequence="4"/>
+
+    </data>
+
+</odoo>

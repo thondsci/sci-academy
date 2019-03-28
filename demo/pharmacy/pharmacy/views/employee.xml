@@ -1,0 +1,56 @@
+<odoo>
+  <data>
+
+      <!-- actions opening views on models -->
+      <record model="ir.actions.act_window" id="employee_action_window">
+          <field name="name">Quản lý nhân viên</field>
+          <field name="res_model">employee.pharmacy</field>
+          <field name="view_mode">tree,form</field>
+      </record>
+
+    <!-- explicit list view definition -->
+      <record model="ir.ui.view" id="employee_list">
+          <field name="name">Danh sách nhân viên</field>
+          <field name="model">employee.pharmacy</field>
+          <field name="arch" type="xml">
+              <tree string="Danh sách nhân viên">
+                  <field name="ma_nv"/>
+                  <field name="name_nv"/>
+                  <field name="birth_day"/>
+                  <field name="sex"/>
+                  <field name="email"/>
+                  <field name="sdt"/>
+                  <field name="addr"/>
+              </tree>
+          </field>
+      </record>
+
+      <!-- form-->
+      <record id="employee_form" model="ir.ui.view">
+          <field name="name">Nhân viên</field>
+          <field name="model">employee.pharmacy</field>
+          <field name="arch" type="xml">
+              <form string="Thêm nhân viên">
+                  <sheet>
+                      <group>
+                          <field name="ma_nv"/>
+                          <field name="name_nv"/>
+                          <field name="birth_day"/>
+                          <field name="sex"/>
+                          <field name="email"/>
+                          <field name="sdt"/>
+                          <field name="addr"/>
+                          <field name="note"/>
+                      </group>
+                  </sheet>
+              </form>
+          </field>
+      </record>
+
+    <!-- actions -->
+
+    <menuitem name="Quản lý nhân viên" id="employee_sub_menu" parent="menu_root_phamacy"
+              action="employee_action_window" sequence="3"/>
+
+  </data>
+</odoo>

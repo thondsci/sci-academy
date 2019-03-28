@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+
+
+        <record id="increment_your_field_sequence" model="ir.sequence">
+            <field name="name">id_bill</field>
+            <field name="code">increment_your_field</field>
+            <field name="prefix"> </field>
+            <field name="padding">4</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+
+        <record model="ir.actions.act_window" id="bill_act">
+            <field name="name">Phiếu khám bệnh</field>
+            <field name="res_model">bill</field>
+            <field name="view_mode">tree,form,kanban</field>
+        </record>
+
+
+        <record model="ir.ui.view" id="bill_tree">
+            <field name="name">List Phiếu khám</field>
+            <field name="model">bill</field>
+            <field name="arch" type="xml">
+                <tree string="Phiếu khám bệnh" decoration-danger="nv == True" decoration-info="nv == False">
+                    <field name="name_patient"/>
+                    <field name="name"/>
+                    <field name="date"/>
+                    <field name="TSB"/>
+                    <field name="height"/>
+                    <field name="weight"/>
+                    <field name="blood_pressure"/>
+                    <field name="name_doctor"/>
+                    <field name="diagnose"/>
+                    <field name="service_use"/>
+                    <field name="bill_drug"/>
+                    <field name="nv"/>
+                    <field name="rv"/>
+                    <field name="code_BHYT"/>
+
+                </tree>
+            </field>
+        </record>
+
+         <record model="ir.ui.view" id="bill_form">
+            <field name="name">Form Phiếu khám bệnh</field>
+            <field name="model">bill</field>
+            <field name="arch" type="xml">
+                <form string="Chi tiết">
+                    <sheet>
+                        <group>
+                            <group>
+                                <h3>Thông tin</h3>
+                                <field name="name"/>
+                                <field name="date"/>
+                                <field name="TSB"/>
+                                <field name="height"/>
+                                <field name="weight"/>
+                                <field name="blood_pressure"/>
+                                <field name="diagnose"/>
+                                 <field name="nv"/>
+                            </group>
+                            <group>
+                                <h3>Thanh toán</h3>
+                                <field name="BHYT"/>
+                                <field name="code_BHYT" attrs="{'invisible':[('BHYT', '!=', True)]}"/>
+                                <field name="ttt"/>
+                                <field name="tt_BHYT"/>
+                                <field name="tt"/>
+                            </group>
+                        </group>
+
+
+                        <notebook>
+                            <page string="Bệnh nhân">
+                                <tree editable="bottom">
+                                    <field name="name_patient"/>
+                                </tree>
+
+                            </page>
+                            <page string="Bác sĩ">
+                                <tree editable="bottom">
+                                    <field name="name_doctor"/>
+
+                                </tree>
+                            </page>
+                            <page string="Dịch vụ sử dụng">
+                                <tree editable="bottom">
+                                    <field name="service_use"/>
+                                </tree>
+                            </page>
+
+                            <page string="Phiếu ra viện">
+                                <tree editable="bottom">
+                                    <field name="rv" attrs="{'invisible':[('nv', '!=', True)]}" />
+                                </tree>
+                            </page>
+                             <page string="Hóa đơn thuốc">
+                                <tree editable="bottom">
+                                    <field name="bill_drug"/>
+                                </tree>
+                            </page>
+
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <menuitem id="bill_menu" name="Phiếu khám bệnh" parent="doctor_ctg" action="bill_act" sequence="2" />
+    </data>
+</odoo>

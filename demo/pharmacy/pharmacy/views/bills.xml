@@ -1,0 +1,77 @@
+<odoo>
+  <data>
+
+      <!-- actions opening views on models -->
+      <record model="ir.actions.act_window" id="bills_action_pharmacy">
+          <field name="name">Quản lý bán hàng</field>
+          <field name="res_model">ticket_sale.pharmacy</field>
+          <field name="view_mode">tree,form</field>
+      </record>
+
+    <!-- explicit list view definition -->
+      <record model="ir.ui.view" id="ticket_sale_list">
+          <field name="name">Danh sách bán hàng</field>
+          <field name="model">ticket_sale.pharmacy</field>
+          <field name="arch" type="xml">
+              <tree string="Danh sách sản phẩm">
+                  <field name="ma_sale"/>
+                  <field name="out_time"/>
+                  <field name="emp_sale"/>
+                  <field name="total_sale"/>
+                  <!--
+                  <field name="email"/>
+                  <field name="sdt"/>
+                  <field name="addr"/>-->
+              </tree>
+          </field>
+      </record>
+
+      <!-- form-->
+      <record id="ticket_sale_form" model="ir.ui.view">
+          <field name="name">Sản phẩm bán</field>
+          <field name="model">ticket_sale.pharmacy</field>
+          <field name="arch" type="xml">
+              <form string="Thêm sản phẩm">
+                  <sheet>
+                      <group>
+                          <field name="ma_sale"/>
+                          <field name="out_time"/>
+                          <!--
+                          <field name="email"/>
+                          <field name="sdt"/>
+                          <field name="addr"/>-->
+                      </group>
+                      <group>
+                          <field name="emp_sale"/>
+                          <field name="total_sale"/>
+                      </group>
+
+                      <notebook>
+                          <page string="Thêm sản phẩm">
+                              <field name="ticket">
+                                  <tree>
+                                      <field name="ma_sp"/>
+                                      <field name="ten_sp"/>
+                                      <field name="price_sale"/>
+                                      <field name="sale_num"/>
+                                      <field name="units"/>
+                                      <field name="pay_sp"/>
+                                  </tree>
+                              </field>
+                          </page>
+                      </notebook>
+                      <group>
+                          <field name="note"/>
+                      </group>
+                  </sheet>
+              </form>
+          </field>
+      </record>
+
+    <!-- actions -->
+
+    <menuitem name="Quản lý bán hàng" id="bills_sub_menu" parent="menu_root_phamacy"
+              action="bills_action_pharmacy" sequence="7"/>
+
+  </data>
+</odoo>

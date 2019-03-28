@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+
+        <menuitem id="doctor_ctg" name="Quản lý bệnh viện " sequence="1" />
+        <record id="doctor_ctg_act" model="ir.actions.act_window">
+            <field name="name">Bác sĩ</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">doctor</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="doctor_ctg_form" model="ir.ui.view">
+            <field name="name">Bác sĩ</field>
+            <field name="model">doctor</field>
+            <field name="arch" type="xml">
+                <form string="Form bác sĩ">
+                    <sheet>
+                        <group>
+                            <field name="code_dt"/>
+                            <field name="name"/>
+                            <field name="position"/>
+                            <field name="Faculty"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="doctor_ctg_tree" model="ir.ui.view">
+            <field name="name">Bác sĩ</field>
+            <field name="model">doctor</field>
+            <field name="arch" type="xml">
+                <tree string="Thông tin bác sĩ">
+                    <field name="code_dt"/>
+                    <field name="name"/>
+                    <field name="position"/>
+                    <field name="Faculty"/>
+                </tree>
+            </field>
+
+        </record>
+
+        <menuitem id="doctor_ctg_menu" name="Thông tin nhân viên" parent="doctor_ctg" action="doctor_ctg_act"
+                  sequence="3" />
+    </data>
+
+</odoo>

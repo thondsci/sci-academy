@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="language_act" model="ir.actions.act_window">
+            <field name="name">Ngôn Ngữ</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">language</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="language_tree" model="ir.ui.view">
+            <field name="name">Ngôn Ngữ</field>
+            <field name="model">language</field>
+            <field name="arch" type="xml">
+                <tree string="Ngôn Ngữ">
+                    <field name="_mangonngu"/>
+                    <field name="_ngonngu"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="language_form" model="ir.ui.view">
+            <field name="name">Ngôn Ngữ</field>
+            <field name="model">language</field>
+            <field name="arch" type="xml">
+                <form string="Ngôn Ngữ">
+                    <sheet>
+                        <group>
+                            <field name="_mangonngu"/>
+                            <field name="_ngonngu"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="language_menu" name="Ngôn Ngữ" parent="quanlythuvien_menu_root" action="language_act" sequence="4"/>
+
+    </data>
+</odoo>

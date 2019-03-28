@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="drug_act" model="ir.actions.act_window">
+            <field name="name">Thuốc</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">drug</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="drug2_tree" model="ir.ui.view">
+            <field name="name">Thuốc</field>
+            <field name="model">drug</field>
+            <field name="arch" type="xml">
+                <tree string="Chi tiết">
+                    <field name="name"/>
+                    <field name="code_drug"/>
+                    <field name="category"/>
+                    <field name="producer"/>
+                    <field name="expiry_date"/>
+                    <field name="amount"/>
+                </tree>
+            </field>
+        </record>
+
+         <record id="drug_form" model="ir.ui.view">
+            <field name="name">Form thuốc</field>
+            <field name="model">drug</field>
+            <field name="arch" type="xml">
+                <form string="Form chi tiết thuốc">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="code_drug"/>
+                            <field name="category"/>
+                            <field name="producer"/>
+                            <field name="expiry_date"/>
+                            <field name="amount"/>
+
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="drug_menu" name="Thuốc" parent="doctor_ctg" action="drug_act" sequence="2"/>
+
+
+    </data>
+</odoo>

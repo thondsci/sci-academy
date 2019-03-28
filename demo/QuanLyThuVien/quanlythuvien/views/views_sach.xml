@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="books_act" model="ir.actions.act_window">
+            <field name="name">Sách</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">books</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="books_tree" model="ir.ui.view">
+            <field name="name">Sách</field>
+            <field name="model">books</field>
+            <field name="arch" type="xml">
+                <tree string="Sách">
+                    <field name="masach"/>
+                    <field name="name_book"/>
+                    <field name="author2"/>
+                    <field name="category2"/>
+                    <field name="language2"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="books_form" model="ir.ui.view">
+            <field name="name">Sách</field>
+            <field name="model">books</field>
+            <field name="arch" type="xml">
+                <form string="Sách">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="masach"/>
+                                <field name="author2"/>
+                                <field name="category2"/>
+                                <field name="language2"/>
+                            </group>
+                            <group>
+                                <field name="name_book"/>
+                                <field name="num_in"/>
+                                <field name="num_remain"/>
+                                <field name="number_page"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <menuitem id="books_menu" name="Sách" parent="quanlythuvien_menu_root" action="books_act" sequence="4"/>
+
+    </data>
+</odoo>

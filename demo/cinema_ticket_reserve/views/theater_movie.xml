@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--Create parent menu-->
+    <menuitem id="cinema_project" name="Phòng vé" sequence="2"/>
+
+    <data>
+        <!--Create action form-->
+        <record id="movie_list_act" model="ir.actions.act_window">
+            <field name="name">Movie List</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">reserve.movie</field>
+            <field name="view_mode">tree,form,kanban</field>
+        </record>
+
+        <!--Create add and edit form-->
+        <record id="movie_list_form" model="ir.ui.view">
+            <field name="name">Movie List</field>
+            <field name="model">reserve.movie</field>
+            <field name="arch" type="xml">
+                <form string="Danh sách phim">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="description"/>
+                            <field name="duration"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!--Create tree-->
+        <record id="movie_list_tree" model="ir.ui.view">
+            <field name="name">Movie List</field>
+            <field name="model">reserve.movie</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="description"/>
+                </tree>
+            </field>
+        </record>
+
+        <!--Sub menu-->
+        <menuitem id="movie_list_submenu" name="Danh sách phim" parent="cinema_project"
+                  action="movie_list_act" sequence="1"/>
+
+    </data>
+
+</odoo>
